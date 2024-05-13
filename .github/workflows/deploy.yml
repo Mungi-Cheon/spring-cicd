@@ -1,10 +1,9 @@
 name: Java CI with Gradle
-
 on:
   push:
-    branches: [ "master" ] // 마스터 브랜치에 PUSH가되면 해당 WORKFILE이 동작합니다.
+    branches: [ "master" ]
   pull_request:
-    branches: [ "master" ]// 마스터 브랜치에 PR이 올라가면 해당 WORKFILE이 동작합니다.
+    branches: [ "master" ]
 
 permissions: write-all
 
@@ -21,10 +20,10 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Add permission // 추가된 부분
+      - name: Add permission
         run: chmod +x gradlew
 
       - name: Build with Gradle
         uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
         with:
-          arguments: build -Pprofile=dev // 추가된 부분
+          arguments: build -Pprofile=dev
