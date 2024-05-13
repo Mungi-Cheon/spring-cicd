@@ -63,7 +63,7 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.DEVELOP_USERNAME }}@${{ secrets.DEVELOP_HOST }} << EOF
             pkill -f 'test-cicd-0.0.1-SNAPSHOT.jar' || true
-            cd ~/app/ci_cd_test
+            cd ~/app/spring-cicd
             nohup java -jar -Dspring.profiles.active=dev test-cicd-0.0.1-SNAPSHOT.jar > app.log 2>&1 &
           EOF
         env:
